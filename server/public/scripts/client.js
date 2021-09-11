@@ -15,6 +15,21 @@ function readyNow() {
 
 function getAllTasks() {
     console.log('Getting all tasks');
+    $.ajax({
+        type: 'GET',
+        url: '/tasks'
+      }).then(function(response) {
+        console.log('GET /tasks', response);
+        appendAllTasks(response);
+      }).catch(function(error) {
+        console.log('error in GET tasks', error);
+    });
+}
+
+function appendAllTasks() {
+    console.log('appending tasks');
+    $('#task-list').empty();
+    // To-Do: .append as table rows
 }
 
 // Execute on click of add button
