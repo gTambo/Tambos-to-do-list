@@ -9,9 +9,14 @@ function readyNow() {
     // Setting up click listeners
     // TO DO: refactor click listeners into separate function
     $('#add-task').on('click', addNewTask);
-    $('#tasklist').on('click', ".check-container", markComplete)
+    $('#tasklist').on('click', '.complete-button', markComplete);
+    $('#tasklist').on('click', '.delete-button', deleteTask);
     // get the tasks on DOM
     getAllTasks();
+}
+
+function deleteTask() {
+    console.log('delete row request');
 }
 
 function markComplete() {
@@ -47,15 +52,19 @@ function appendAllTasks(taskList) {
                 <td>${item.task}</td>
                 <td>${item.details}</td>
                 <td>${domComplete}</td>
-                <td><label class="check-container">
-                    <input type="checkbox" data-id="${item.id}">
-                    <span class="checkmark"></span>
+                <td>
+                    <button class="complete-button" data-id="${item.id}">Complete</button>
+                    <button class="delete-button" data-id="${item.id}">Delete</button>
                 </td>
                 <td>${item.whenCompleted}</td>
             </tr>
         `);
     }
 }
+
+{/* <label class="check-container">
+<input type="checkbox" data-id="${item.id}">
+<span class="checkmark"></span>  */}
 
 // Execute on click of add button
 function addNewTask() {
