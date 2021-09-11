@@ -8,7 +8,7 @@ app.use(express.urlencoded({ extended:true }));
 app.use(express.static('server/public'));
 
 // Routes
-app.use('/task', taskRouter);
+app.use('/tasks', taskRouter);
 
 
 // start listening on assigned port

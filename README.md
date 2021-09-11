@@ -17,7 +17,8 @@ Additional README details can be found [here](https://github.com/PrimeAcademy/re
 - [x] create input fields for new task, and add button, html table
 - [x] router file set up
 - [x] server(router) POST route for new task
-- [ ] client POST route for new task
+- [x] client POST route for new task
+- [x] write client click event handler
 - [ ] server GET route for all task
 - [ ] client GET route for all tasks
 - [ ] append tasks to the DOM (remember fields for delete and completed)
@@ -44,5 +45,5 @@ Additional README details can be found [here](https://github.com/PrimeAcademy/re
 - [ ] new put route for adding this info
 - [ ] css/styling for better looking date
 - [ ] research bootstrap an include as desired.
-- [ ] 
+- [ ] make and source favicon
 

@@ -5,6 +5,10 @@ CREATE TABLE tasks (
 				"whenCompleted" VARCHAR (128)
 				);
 
+ALTER TABLE "tasks"
+ADD COLUMN "details" VARCHAR (512);
+				
+
 INSERT INTO "tasks" 
 			("task")
 VALUES
