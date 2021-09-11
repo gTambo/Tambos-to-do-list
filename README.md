@@ -16,13 +16,7 @@ Additional README details can be found [here](https://github.com/PrimeAcademy/re
 - [x] mock-up to do item, fill in database.sql file
 - [x] create input fields for new task, and add button, html table
 - [x] router file set up
-- [x] (result) => { // sending success back to client
-        console.log('POST new koala success!');
-        res.sendStatus(200);
-    }).catch((error) => {
-        console.log('Error in POST', error);
-        res.sendStatus(500);
-    });
+- [x] server(router) POST route for new task
 - [ ] client POST route for new task
 - [ ] server GET route for all task
 - [ ] client GET route for all tasks
