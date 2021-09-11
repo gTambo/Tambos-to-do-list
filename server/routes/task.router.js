@@ -43,13 +43,13 @@ router.get('/', (req, res) => {
 router.put('/:id', (req, res) => {
     let reqId = req.params.id;
     console.log('PUT request for id', reqId);
-    let queryText = 'UPDATE "tasks" SET "isComplete" = NOT "iscomplete" WHERE "id" = $1;'
+    let queryText = 'UPDATE "tasks" SET "isComplete" = NOT "isComplete" WHERE "id" = $1 RETURNING *;'
     pool.query(queryText, [reqId])
         .then((result) => {
             console.log('Task updated');
             res.sendStatus(200);
         }).catch((error) => {
-            console.log(`Error making database query ${sqlText}`, error);
+            console.log(`Error making database query ${queryText}`, error);
             res.sendStatus(500);
         })
 });
@@ -58,14 +58,14 @@ router.put('/:id', (req, res) => {
 router.delete('/:id', (req, res) => {
     let reqId = req.params.id;
     console.log('DELETE request for id', reqId);
-    let sqlText = 'DELETE FROM "tasks" WHERE "id" = $1;'
-    pool.query(sqlText, [reqId])
+    let queryText = 'DELETE FROM "tasks" WHERE "id" = $1;'
+    pool.query(queryText, [reqId])
         .then((result) => {
             console.log('taask deleted');
             res.sendStatus(200);
         })
         .catch((error) => {
-            console.log(`Error making database query ${sqlText}`, error);
+            console.log(`Error making database query ${queryText}`, error);
             res.sendStatus(500);
         })
 });

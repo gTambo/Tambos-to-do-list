@@ -33,7 +33,13 @@ function deleteTask() {
 function markComplete() {
     console.log('In mark complete');
     let taskId = $(this).data('id');
-    
+    $.ajax({
+        method: 'PUT',
+        url: `/tasks/${taskId}`
+    }).then( function(response) {
+        console.log('Task marked complete');
+        getAllTasks();
+    })
 }
 
 function getAllTasks() {
@@ -52,7 +58,7 @@ function getAllTasks() {
 function appendAllTasks(taskList) {
     console.log('appending tasks');
     $('#tasklist').empty();
-    // To-Do: .append as table rows
+    // Append as table rows
     let domComplete = '';
     for(let item of taskList) {
         if(item.isComplete == false) {

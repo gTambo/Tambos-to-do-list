@@ -27,9 +27,9 @@ Additional README details can be found [here](https://github.com/PrimeAcademy/re
 - [x] client DELETE route
 - [x] create completed button
 - [x] create server PUT route for isCompleted
-- [ ] create client PUT route for isCompleted
-- [ ] click event for delete
-- [ ] click event for complete
+- [x] create client PUT route for isCompleted
+- [x] click event for delete
+- [x] click event for complete
 - [ ] general styling - find a neat font or two
 - [ ] completed button styling
 - [ ] ??? 
