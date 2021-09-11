@@ -10,10 +10,10 @@ Additional README details can be found [here](https://github.com/PrimeAcademy/re
 
 ## Checklist
 
-- [ ] complete file tree, with static files, server, modules, 
-- [ ] create pool router module
-- [ ] create database, database.sql file, table headers
-- [ ] mock-up to do item, fill in database.sql file
+- [x] complete file tree, with static files, server, modules, 
+- [x] create pool router module
+- [x] create database, database.sql file, table headers
+- [x] mock-up to do item, fill in database.sql file
 - [ ] create input fields for new task, and add button
 - [ ] router file
 - [ ] server POST route for new task
