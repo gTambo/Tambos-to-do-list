@@ -40,8 +40,34 @@ router.get('/', (req, res) => {
 });
 
 // PUT
-
+router.put('/:id', (req, res) => {
+    let reqId = req.params.id;
+    console.log('PUT request for id', reqId);
+    let queryText = 'UPDATE "tasks" SET "isComplete" = NOT "iscomplete" WHERE "id" = $1;'
+    pool.query(queryText, [reqId])
+        .then((result) => {
+            console.log('Task updated');
+            res.sendStatus(200);
+        }).catch((error) => {
+            console.log(`Error making database query ${sqlText}`, error);
+            res.sendStatus(500);
+        })
+});
 
 // DELETE
+router.delete('/:id', (req, res) => {
+    let reqId = req.params.id;
+    console.log('DELETE request for id', reqId);
+    let sqlText = 'DELETE FROM "tasks" WHERE "id" = $1;'
+    pool.query(sqlText, [reqId])
+        .then((result) => {
+            console.log('taask deleted');
+            res.sendStatus(200);
+        })
+        .catch((error) => {
+            console.log(`Error making database query ${sqlText}`, error);
+            res.sendStatus(500);
+        })
+});
 
 module.exports = router;

@@ -23,10 +23,10 @@ Additional README details can be found [here](https://github.com/PrimeAcademy/re
 - [x] client GET route for all tasks
 - [x] append tasks to the DOM (remember fields for delete and completed)
 - [x] create delete button
-- [ ] server DELETE route
+- [x] server DELETE route
 - [ ] client DELETE route
 - [x] create completed button
-- [ ] create server PUT route for isCompleted
+- [x] create server PUT route for isCompleted
 - [ ] create client PUT route for isCompleted
 - [ ] click event for delete
 - [ ] click event for complete
