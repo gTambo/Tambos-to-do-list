@@ -11,20 +11,28 @@
 </head>
 <body>
     <h1>Tambo's To-Do's</h1>
-    <label for="new-task">TO-DO:</label>
+    <label for="new-task">TO-DO:
     <input type="text" id="new-task" placeholder="e.g. Wash the dishes"/>
     <button id="add-task">Add</button>
-
+    </label>
     <table>
         <thead>
             <tr>
                 <th>Task</th>
-                <th>Complete?</th>
+                <th>Completed?</th>
                 <th> </th>
                 <th>When</th>
             </tr>
         </thead>
-        <tbody id="tasklist"></tbody>
+        <tbody id="tasklist">
+            <td></td>
+            <td></td>
+            <td><label class="container">
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </td>
+            <td></td>
+        </tbody>
     </table>
 
 </body>
