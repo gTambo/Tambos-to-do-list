@@ -19,7 +19,7 @@ Additional README details can be found [here](https://github.com/PrimeAcademy/re
 - [x] server(router) POST route for new task
 - [x] client POST route for new task
 - [x] write client click event handler
-- [ ] server GET route for all task
+- [x] server GET route for all tasks
 - [ ] client GET route for all tasks
 - [ ] append tasks to the DOM (remember fields for delete and completed)
 - [ ] create delete button
