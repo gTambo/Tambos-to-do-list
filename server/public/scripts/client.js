@@ -9,14 +9,19 @@ function readyNow() {
     // Setting up click listeners
     // TO DO: refactor click listeners into separate function
     $('#add-task').on('click', addNewTask);
+    $('#tasklist').on('click', ".check-container", markComplete)
     // get the tasks on DOM
     getAllTasks();
+}
+
+function markComplete() {
+    console.log('In mark complete');
 }
 
 function getAllTasks() {
     console.log('Getting all tasks');
     $.ajax({
-        type: 'GET',
+        method: 'GET',
         url: '/tasks'
       }).then(function(response) {
         console.log('GET /tasks', response);
@@ -26,10 +31,30 @@ function getAllTasks() {
     });
 }
 
-function appendAllTasks() {
+function appendAllTasks(taskList) {
     console.log('appending tasks');
-    $('#task-list').empty();
+    $('#tasklist').empty();
     // To-Do: .append as table rows
+    let domComplete = '';
+    for(let item of taskList) {
+        if(item.isComplete == false) {
+            domComplete = 'No';
+        } else {
+            domComplete = 'Yes';
+        }
+        $('#tasklist').append(`
+            <tr class="taskListRow">
+                <td>${item.task}</td>
+                <td>${item.details}</td>
+                <td>${domComplete}</td>
+                <td><label class="check-container">
+                    <input type="checkbox" data-id="${item.id}">
+                    <span class="checkmark"></span>
+                </td>
+                <td>${item.whenCompleted}</td>
+            </tr>
+        `);
+    }
 }
 
 // Execute on click of add button
