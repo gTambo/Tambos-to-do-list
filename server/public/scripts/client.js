@@ -17,10 +17,23 @@ function readyNow() {
 
 function deleteTask() {
     console.log('delete row request');
+    let taskId = $(this).data('id');
+    $.ajax({
+        method: 'DELETE',
+        url: `/tasks/${taskId}`
+    }).then( function(response) {
+        console.log('Task deleted!');
+        getAllTasks(); // Refresh the list of tasks
+    }).catch( function(error) {
+        alert('Something went wrong!');
+        console.log('Error in DELETE', error);
+    });
 }
 
 function markComplete() {
     console.log('In mark complete');
+    let taskId = $(this).data('id');
+    
 }
 
 function getAllTasks() {
