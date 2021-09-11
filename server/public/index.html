@@ -5,11 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tambo's To-Do's</title>
-    <link rel="stylesheet" href="styles/style.css">
     <script src="vendors/jquery.js"></script>
     <script src="scripts/client.js"></script>
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
     <h1>Tambo's To-Do's</h1>
+    <label for="new-task">TO-DO:</label>
+    <input type="text" id="new-task" placeholder="e.g. Wash the dishes"/>
+    <button id="add-task">Add</button>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Task</th>
+                <th>Complete?</th>
+                <th> </th>
+                <th>When</th>
+            </tr>
+        </thead>
+        <tbody id="tasklist"></tbody>
+    </table>
+
 </body>
 </html>

@@ -14,8 +14,8 @@ Additional README details can be found [here](https://github.com/PrimeAcademy/re
 - [x] create pool router module
 - [x] create database, database.sql file, table headers
 - [x] mock-up to do item, fill in database.sql file
-- [ ] create input fields for new task, and add button
-- [ ] router file
+- [x] create input fields for new task, and add button, html table
+- [x] router file set up
 - [ ] server POST route for new task
 - [ ] client POST route for new task
 - [ ] server GET route for all task
