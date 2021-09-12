@@ -31,8 +31,8 @@ Additional README details can be found [here](https://github.com/PrimeAcademy/re
 - [x] click event for delete
 - [x] click event for complete
 - [x] general styling - find a neat font or two
-- [ ] completed button styling
-- [ ] create functional checkbox
+- [x] completed button styling
+- [x] create functional checkbox
 
 ## Stretch Goals
 
