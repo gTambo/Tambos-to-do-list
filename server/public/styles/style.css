@@ -17,6 +17,10 @@ button {
     margin-left: 2%;
 }
 
+#tasklist{
+    margin: 8px;
+}
+
 table {
     margin: 0 auto;
     margin-top: 10%;
@@ -24,15 +28,30 @@ table {
     border: double 12px darkcyan;
 }
 
-tr{
+tr, td{
     height: 50px;
+    padding: 3px;
+    border: solid 2px darkcyan;
+    margin-bottom: 5px;
 }
+
+th {
+    border: solid 6px darkcyan;
+
+}
+
 .marked {
     background-color: lemonchiffon;
+    text-decoration: line-through;
+    color: dimgrey;
+    font-weight: 400;
 }
 
 .unmarked {
+    padding-left: 5px;
     background-color: coral;
+    color: darkslategrey;
+    font-weight: 700;
 }
 /* styling found on W3Schools, for check-box */
 /* The check-container */

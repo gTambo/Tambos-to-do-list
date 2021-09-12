@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/gTambo/weekendSQL-to-to-list#readme",
   "dependencies": {
+    "bootstrap": "^5.1.1",
     "express": "^4.17.1",
     "moment": "^2.29.1",
     "pg": "^8.7.1"
