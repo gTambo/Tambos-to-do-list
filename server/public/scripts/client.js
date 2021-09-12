@@ -5,7 +5,7 @@ $(readyNow);
 
 function readyNow() {
     console.log('document ready - jQ');
-    
+
     // Setting up click listeners
     // TO DO: refactor click listeners into separate function
     $('#add-task').on('click', addNewTask);
@@ -21,10 +21,10 @@ function deleteTask() {
     $.ajax({
         method: 'DELETE',
         url: `/tasks/${taskId}`
-    }).then( function(response) {
+    }).then(function (response) {
         console.log('Task deleted!');
         getAllTasks(); // Refresh the list of tasks
-    }).catch( function(error) {
+    }).catch(function (error) {
         alert('Something went wrong!');
         console.log('Error in DELETE', error);
     });
@@ -38,7 +38,7 @@ function markComplete() {
     $.ajax({
         method: 'PUT',
         url: `/tasks/${taskId}`
-    }).then( function(response) {
+    }).then(function (response) {
         console.log('Task marked complete');
         getAllTasks();
     })
@@ -49,10 +49,10 @@ function getAllTasks() {
     $.ajax({
         method: 'GET',
         url: '/tasks'
-      }).then(function(response) {
+    }).then(function (response) {
         console.log('GET /tasks', response);
         appendAllTasks(response);
-      }).catch(function(error) {
+    }).catch(function (error) {
         console.log('error in GET tasks', error);
     });
 }
@@ -101,14 +101,13 @@ function appendAllTasks(taskList) {
             </tr>
         `);
         }
-        
     }
 }
 
 {/* <label class="check-container">
 <input type="checkbox" data-id="${item.id}">
 <span class="checkmark"></span>  */}
-{/* <button class="complete-button" data-id="${item.id}">Complete</button> */}
+{/* <button class="complete-button" data-id="${item.id}">Complete</button> */ }
 
 // Execute on click of add button
 function addNewTask() {
@@ -135,12 +134,12 @@ function addNewTask() {
         method: 'POST',
         url: '/tasks',
         data: taskToAdd
-    }).then(function(response) { //log response from server
+    }).then(function (response) { //log response from server
         console.log('Response from server.', response);
         // after updating tasks, reload list
         getAllTasks();
-      }).catch(function(error) {
+    }).catch(function (error) {
         console.log('Error in POST', error)
         alert('Unable to add new task.');
-      });
+    });
 }
