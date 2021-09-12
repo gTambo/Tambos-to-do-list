@@ -30,7 +30,7 @@ Additional README details can be found [here](https://github.com/PrimeAcademy/re
 - [x] create client PUT route for isCompleted
 - [x] click event for delete
 - [x] click event for complete
-- [ ] general styling - find a neat font or two
+- [x] general styling - find a neat font or two
 - [ ] completed button styling
 - [ ] ??? 
 

@@ -1,6 +1,35 @@
 body{
     margin: auto;
     background-color: aquamarine;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+h1{
+    font-family: 'Abril Fatface', cursive;
+    margin-left: 5%;
+}
+
+button {
+    font-family: 'Abril Fatface', cursive;
+}
+
+#task-label {
+    margin-left: 2%;
+}
+
+table {
+    margin: 0 auto;
+    margin-top: 10%;
+    padding: 2%;
+    border: double 12px darkcyan;
+}
+
+.marked {
+    background-color: lemonchiffon;
+}
+
+.unmarked {
+    background-color: coral;
 }
 /* styling found on W3Schools, for check-box */
 /* The check-container */

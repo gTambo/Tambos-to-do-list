@@ -33,6 +33,8 @@ function deleteTask() {
 function markComplete() {
     console.log('In mark complete');
     let taskId = $(this).data('id');
+    // console.log($(this).closest('tr'));
+    // $(this).closest('tr').toggleClass('marked');
     $.ajax({
         method: 'PUT',
         url: `/tasks/${taskId}`
@@ -59,25 +61,45 @@ function appendAllTasks(taskList) {
     console.log('appending tasks');
     $('#tasklist').empty();
     // Append as table rows
-    let domComplete = '';
+    let domComplete = 'No';
+    let details = '';
+    let completionDate = '';
     for(let item of taskList) {
-        if(item.isComplete == false) {
-            domComplete = 'No';
-        } else {
-            domComplete = 'Yes';
+        if (item.details != null) {
+            details = item.details;
         }
-        $('#tasklist').append(`
-            <tr class="taskListRow">
+        if (item.whenCompleted != null) {
+            completionDate = item.whenCompleted;
+        }
+        if (item.isComplete == false) {
+            $('#tasklist').append(`
+            <tr class="taskListRow unmarked">
                 <td>${item.task}</td>
-                <td>${item.details}</td>
+                <td>${details}</td>
                 <td>${domComplete}</td>
                 <td>
                     <button class="complete-button" data-id="${item.id}">Complete</button>
                     <button class="delete-button" data-id="${item.id}">Delete</button>
                 </td>
-                <td>${item.whenCompleted}</td>
+                <td>${completionDate}</td>
             </tr>
         `);
+        } else {
+            domComplete = 'Yes';
+            $('#tasklist').append(`
+            <tr class="taskListRow marked">
+                <td>${item.task}</td>
+                <td>${details}</td>
+                <td>Yes</td>
+                <td>
+                    <button class="complete-button" data-id="${item.id}">Complete</button>
+                    <button class="delete-button" data-id="${item.id}">Delete</button>
+                </td>
+                <td>${completionDate}</td>
+            </tr>
+        `);
+        }
+        
     }
 }
 
