@@ -8,19 +8,21 @@ function readyNow() {
     // Setting up click listeners
     // TO DO: refactor click listeners into separate function
     $('#add-task').on('click', addNewTask);
-    $('#task-label').keypress(function (event) {
-        var key = event.which;
-        if(key == 13)  // the enter key code
-         {
-           $('#add-task').click();
-           return false;  
-         }
-       });
+    // trying to trigger add-button click with enter keypress
+    $('#task-label').on('keypress', enterKey);
     $('#tasklist').on('click', 'input', markComplete);
     $('#tasklist').on('click', '.complete-button', markComplete);
     $('#tasklist').on('click', '.delete-button', deleteTask);
     // get the tasks on DOM
     getAllTasks();
+}
+
+function enterKey(key) {
+    let enter = key.which;
+    if (enter == 13) {
+        $('#add-task').on('click', addNewTask());
+        return false;
+    }
 }
 
 function deleteTask() {
