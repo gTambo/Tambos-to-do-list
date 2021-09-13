@@ -1,15 +1,16 @@
 console.log('JS');
 
-
 $(readyNow);
 
 function readyNow() {
-    console.log('document ready - jQ');
 
+    console.log('document ready - jQ');
     // Setting up click listeners
     // TO DO: refactor click listeners into separate function
     $('#add-task').on('click', addNewTask);
+    $('#task-label').on('keypress', {which: 13}, addNewTask);
     $('#tasklist').on('click', 'input', markComplete);
+    $('#tasklist').on('click', '.complete-button', markComplete);
     $('#tasklist').on('click', '.delete-button', deleteTask);
     // get the tasks on DOM
     getAllTasks();
@@ -80,7 +81,8 @@ function appendAllTasks(taskList) {
                 <input type="checkbox" data-id="${item.id}">
                 <span class="checkmark"></span> </td>
                 <td>
-                    <button class="delete-button" data-id="${item.id}">Delete</button>
+                    <button class="complete-button btn btn-success" data-id="${item.id}">Complete</button>
+                    <button class="delete-button btn btn-danger" data-id="${item.id}">Delete</button>
                 </td>
                 <td>${completionDate}</td>
             </tr>
@@ -95,7 +97,8 @@ function appendAllTasks(taskList) {
                 <input type="checkbox" checked="true" data-id="${item.id}">
                 <span class="checkmark"></span></td>
                 <td>
-                    <button class="delete-button" data-id="${item.id}">Delete</button>
+                    <button class="complete-button btn btn-success" data-id="${item.id}">Complete</button>
+                    <button class="delete-button btn btn-danger" data-id="${item.id}">Delete</button>
                 </td>
                 <td>${completionDate}</td>
             </tr>
