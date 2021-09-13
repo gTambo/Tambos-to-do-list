@@ -8,7 +8,14 @@ function readyNow() {
     // Setting up click listeners
     // TO DO: refactor click listeners into separate function
     $('#add-task').on('click', addNewTask);
-    $('#task-label').on('keypress', {which: 13}, addNewTask);
+    $('#task-label').keypress(function (event) {
+        var key = event.which;
+        if(key == 13)  // the enter key code
+         {
+           $('#add-task').click();
+           return false;  
+         }
+       });
     $('#tasklist').on('click', 'input', markComplete);
     $('#tasklist').on('click', '.complete-button', markComplete);
     $('#tasklist').on('click', '.delete-button', deleteTask);
