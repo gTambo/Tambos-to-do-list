@@ -1,27 +1,52 @@
+/**
+* You'll need to use environment variables in order to deploy your
+* pg-pool configuration to Heroku.
+* It will look something like this:
+**/
+/* the only line you likely need to change is
+ database: 'prime_app',
+ change `prime_app` to the name of your database, and you should be all set!
+*/
+
 const pg = require('pg');
+const url = require('url');
 
-// I don't totally understand this, I just copied it over from previous assignments
-// I see that the next line configures database connection parameters
-const config = {
-    database: 'weekend-to-do-app', 
-    host: 'localhost', 
-    port: 5432, 
-    max: 10, 
-    idleTimeoutMillis: 30000 
+let config = {};
+
+// We need a different pg configuration if we're running
+// on Heroku, vs if we're running locally.
+//
+// Heroku gives us a process.env.DATABASE_URL variable,
+// so if that's set, we know we're on heroku.
+if (process.env.DATABASE_URL) {
+  config = {
+    // We use the DATABASE_URL from Heroku to connect to our DB
+    connectionString: process.env.DATABASE_URL,
+    // Heroku also requires this special `ssl` config
+    ssl: { rejectUnauthorized: false },
   };
+} else {
+  // If we're not on heroku, configure PG to use our local database
+  config = {
+    host: 'localhost',
+    port: 5432,
+    database: 'weekend-to-do-app', // CHANGE THIS LINE to match your local database name!
+  };
+}
 
-// declaring variable 'pool' to export, assigned to a call for a new pg method .Pool with input config
-  const pool = new pg.Pool(config);
+// this creates the pool that will be shared by all other modules
+const pool = new pg.Pool(config);
 
-//   on pool connect event, returning sucess message to console log?
-  pool.on("connect", () => {
-    console.log("connected to postgres");
-  });
-  
-//   on pool error event, returing error message to the log, with specific error?
-  pool.on("error", (err) => {
-    console.log("error connecting to postgres", err);
-  });
-  
-//   exporting pool as module?
-  module.exports = pool;
+// the pool will log when it connects to the database
+pool.on('connect', () => {
+  console.log('Postgesql connected');
+});
+
+// the pool with emit an error on behalf of any idle clients
+// it contains if a backend error or network partition happens
+pool.on('error', (err) => {
+  console.log('Unexpected error on idle client', err);
+  process.exit(-1);
+});
+
+module.exports = pool;
