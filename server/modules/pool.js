@@ -31,6 +31,7 @@ if (process.env.DATABASE_URL) {
     host: 'localhost',
     port: 5432,
     database: 'weekend-to-do-app', // CHANGE THIS LINE to match your local database name!
+    idleTimeoutMillis: 30000 
   };
 }
 

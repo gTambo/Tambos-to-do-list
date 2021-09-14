@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const PORT = process.env.port || 5000;
+const PORT = process.env.PORT || 5000;
 // local router path defined
 const taskRouter = require('./routes/task.router.js');
 
