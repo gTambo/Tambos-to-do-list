@@ -2,46 +2,48 @@
 
 ## Description
 
-Your project description goes here. What problem did you solve? How did you solve it?
+_Duration: 2 Day Sprint_
 
-Additional README details can be found [here](https://github.com/PrimeAcademy/readme-template/blob/master/README.md).
+This is a simple application for adding and saving tasks to a list where you can later mark them as complete or delete them if needed.
 
-## Checklist
 
-- [x] complete file tree, with static files, server, modules, 
-- [x] create pool router module
-- [x] create database, database.sql file, table headers
-- [x] mock-up to do item, fill in database.sql file
-- [x] create input fields for new task, and add button, html table
-- [x] router file set up
-- [x] server(router) POST route for new task
-- [x] client POST route for new task
-- [x] write client click event handler
-- [x] server GET route for all tasks
-- [x] client GET route for all tasks
-- [x] append tasks to the DOM (remember fields for delete and completed)
-- [x] create delete button
-- [x] server DELETE route
-- [x] client DELETE route
-- [x] create completed button
-- [x] create server PUT route for isCompleted
-- [x] create client PUT route for isCompleted
-- [x] click event for delete
-- [x] click event for complete
-- [x] general styling - find a neat font or two
-- [x] completed button styling
-- [x] create functional checkbox
+## Screen Shot
 
-## Stretch Goals
+![Main_Page](server/public/images/screenshot.png)
 
-- [ ] reasearch confirm delete
-- [ ] include confirm delete as a feature branch
-- [ ] research [Query Params](https://expressjs.com/en/api.html#req.query) to have the request reverse the order of the returned todos.
-- [ ] include a feature branch to work on this
-- [ ] on a new feature, include new field for a time and date completed
-- [ ] research time usage
-- [ ] new put route for adding this info
-- [ ] css/styling for better looking date
-- [ ] research bootstrap an include as desired.
-- [ ] make and source favicon
 
+### Prerequisites
+
+- [Node.js](https://nodejs.org/en/)
+- List other prerequisites here
+
+## Installation
+
+1. Create a database named `weekend-to-do-app`,
+2. The queries in the `database.sql` file are set up to create all the necessary tables and populate the needed data to allow the application to run correctly. The project is built on [Postgres](https://www.postgresql.org/download/), so you will need to make sure to have that installed. We recommend using Postico to run those queries as that was used to create the queries, 
+3. Open up your editor of choice and run an `npm install`
+4. Run `npm run server` in your terminal
+5. Run `npm run client` in your terminal
+6. The `npm run client` command will open up a new browser tab for you!
+
+## Usage
+
+1. Enter a task and a brief description into the text fields at the top of the page
+2. Click *'Add'* to post the task to the list
+3. Click the checkbox in the *'Done'* column to mark a task complete
+4. Clicking a *'Delete'* button removes that row from the list
+
+
+## Built With
+
+- JavaScript
+- jQuery
+- ExpressJS
+- nodejs
+- postgresql
+
+## Acknowledgement
+Thanks to [Prime Digital Academy](www.primeacademy.io) who equipped and helped me to make this application a reality. Thanks Mo for inspiring some extra styling.
+
+## Support
+If you have suggestions or issues, please email me at [myemail@giuno.com](www.google.com)
